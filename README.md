@@ -16,6 +16,22 @@ Run `nx graph` to see a diagram of the dependencies of the projects.
 
 Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and make CI faster.
 
+## Implementing Tailwind
+
+Visit the [NX tailwindcss document](https://nx.dev/recipes/other/using-tailwind-css-in-react#using-tailwind-css-in-react-and-next.js) to implement in the project.
+
+## Implementing React Material Tailwind
+
+Visit the [React Material Tailwind](https://www.material-tailwind.com/docs/react/guide/vite#example) to learn more.
+
+## Implementing Joyride
+
+run this command `yarn add react-joyride`
+In `app/vite.config.ts` add the following code
+define: {
+global: {},
+},
+
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
