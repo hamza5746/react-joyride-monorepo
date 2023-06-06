@@ -36,9 +36,10 @@ export const NxWelcome = ({ title }: { title: string }) => {
         },
         spotlightPadding: 20,
         disableBeacon: true,
+        disableOverlayClose: true,
       },
       {
-        target: '#hero',
+        target: '#next',
         content: 'This another awesome feature!',
         floaterProps: {
           disableAnimation: true,
@@ -47,11 +48,12 @@ export const NxWelcome = ({ title }: { title: string }) => {
         disableBeacon: true,
       },
       {
-        target: '#middle-content',
+        target: '#documents',
         content: 'This is my awesome feature!',
         floaterProps: {
           disableAnimation: true,
         },
+        placement: 'right-end',
         spotlightPadding: 20,
         disableBeacon: true,
       },
@@ -66,40 +68,7 @@ export const NxWelcome = ({ title }: { title: string }) => {
       },
     ],
   });
-  const stepss: Array<Step> = [
-    {
-      target: '.klll',
-      content: 'This is my awesome feature!',
-      floaterProps: {
-        disableAnimation: true,
-      },
-      spotlightPadding: 20,
-    },
-    {
-      target: '#hero',
-      content: 'This another awesome feature!',
-      floaterProps: {
-        disableAnimation: true,
-      },
-      spotlightPadding: 20,
-    },
-    {
-      target: '#middle-content',
-      content: 'This is my awesome feature!',
-      floaterProps: {
-        disableAnimation: true,
-      },
-      spotlightPadding: 20,
-    },
-    {
-      target: '#commands',
-      content: 'This is my awesome feature!',
-      floaterProps: {
-        disableAnimation: true,
-      },
-      spotlightPadding: 20,
-    },
-  ];
+
   const handleClickStart = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
 
@@ -120,7 +89,7 @@ export const NxWelcome = ({ title }: { title: string }) => {
     tooltipProps,
   }: TooltipRenderProps) {
     return (
-      <div {...tooltipProps} style={{ paddingLeft: 200 }}>
+      <div {...tooltipProps} className="ahsjkd">
         <Card className="w-96">
           <CardBody>
             {step.title && (
@@ -146,20 +115,25 @@ export const NxWelcome = ({ title }: { title: string }) => {
       </div>
     );
   }
+
+  const handjoyride = () => {
+    console.log('asdas');
+  };
+
   return (
     <>
       <Joyride
         tooltipComponent={Tooltip}
         steps={step.steps}
         run={step.run}
-        continuous
         showProgress
-        showSkipButton
+        spotlightClicks={true}
         styles={{
           tooltip: {
             borderRadius: 20,
           },
         }}
+        callback={handjoyride}
       />
       <style
         dangerouslySetInnerHTML={{
@@ -573,7 +547,7 @@ export const NxWelcome = ({ title }: { title: string }) => {
         <div className="container">
           <div className="row">
             <div className="col-4">
-              <Button>Button</Button>
+              <Button onClick={handleClickStart}>Start Walkthrough</Button>
               <h1 className="text-3xl font-bold underline">Hello world!</h1>
             </div>
           </div>
@@ -603,7 +577,10 @@ export const NxWelcome = ({ title }: { title: string }) => {
                 </svg>
                 <span>You&apos;re up and running</span>
               </h2>
-              <a href="#commands"> What&apos;s next? </a>
+              <a id="next" href="#commands">
+                {' '}
+                What&apos;s next?{' '}
+              </a>
             </div>
             <div className="logo-container">
               <svg
@@ -625,6 +602,7 @@ export const NxWelcome = ({ title }: { title: string }) => {
                 target="_blank"
                 rel="noreferrer"
                 className="list-item-link"
+                id="documents"
               >
                 <svg
                   fill="none"
