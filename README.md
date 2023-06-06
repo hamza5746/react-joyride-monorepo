@@ -28,9 +28,7 @@ Visit the [React Material Tailwind](https://www.material-tailwind.com/docs/react
 
 run this command `yarn add react-joyride`
 In `app/vite.config.ts` add the following code
-define: {
-global: {},
-},
+`define: { global: {},},`
 
 ## Further help
 
